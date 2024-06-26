@@ -5,6 +5,7 @@ import Navbar from './components/navbar/Navbar';
 
 import Login from './paginas/login/Login';
 import Home from './paginas/home/Home';
+import Cadastro from './paginas/cadastro/Cadastro';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/cadastro" element={<Cadastro />} />
           </Routes>
         </div>
           <Footer />
