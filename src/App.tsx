@@ -2,8 +2,9 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
-import Home from './paginas/home/Home';
+
 import Login from './paginas/login/Login';
+import Home from './paginas/home/Home';
 
 function App() {
   return (
