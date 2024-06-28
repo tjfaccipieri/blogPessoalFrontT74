@@ -1,5 +1,4 @@
 import homeLogo from '../../assets/codigo.png'
-import AxiosGet from './AxiosGet';
 
 function Home() {
   return (
@@ -16,6 +15,7 @@ function Home() {
               </button>
             </div>
           </div>
+
 
           <div className="flex justify-center ">
             <img src={homeLogo} alt="" className="w-2/3" />

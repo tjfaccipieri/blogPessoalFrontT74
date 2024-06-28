@@ -62,7 +62,7 @@ function Cadastro() {
       // caso tenha algum problema na validação das senhas, toda a parte acima será desconsiderada, e iremos para esse ELSE
       alert('Dados inconsistentes. Verifique as informações de cadastro.')
       setUsuario({ ...usuario, senha: "" }) // Reinicia o campo de Senha
-      setConfirmarSenha("")                  // Reinicia o campo de Confirmar Senha
+      setConfirmarSenha("")                 // Reinicia o campo de Confirmar Senha
     }
   }
 
@@ -158,7 +158,7 @@ function Cadastro() {
             />
           </div>
           <div className="flex justify-around w-full gap-8">
-            <button className="rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2">
+            <button className="rounded text-white bg-red-400 hover:bg-red-700 w-1/2 py-2" onClick={back}>
               Cancelar
             </button>
             <button
