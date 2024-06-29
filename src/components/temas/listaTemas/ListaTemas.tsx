@@ -24,11 +24,9 @@ function ListaTemas() {
 
   async function buscarTemas(){
     try {
-      console.log(token);
       await buscar('/temas', setTemas, {
         headers: { Authorization: token },
       });
-      console.log(temas);
     } catch (error) {
       alert('Deu ruim')
       console.log(error);

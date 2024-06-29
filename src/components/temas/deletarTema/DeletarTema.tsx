@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import Tema from "../../../models/Tema";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from 'react-router-dom';
+import { buscar, deletar } from "../../../services/Service";
 
 function DeletarTema() {
   const [tema, setTema] = useState<Tema>({} as Tema)
@@ -11,7 +12,39 @@ function DeletarTema() {
 
   function retornar() {
     navigate("/temas")
-}
+  }
+
+  const {id} = useParams<{id: string}>()
+
+  async function buscarPorId(id: string) {
+    try {
+      await buscar(`/temas/${id}`, setTema, {
+        headers: {
+          Authorization: token
+        }
+      })
+    } catch (error) {
+      alert('Erro ao buscar o tema')
+    }
+  }
+
+  async function apagarTema(){
+    try {
+      await deletar(`/temas/${id}`, {
+        headers: {
+          Authorization: token
+        }
+      })
+      alert('Foi de vala')
+      retornar()
+    } catch (error: any) {
+      if(error.toString().includes('403')){
+        alert('Token venceu')
+        handleLogout
+      }
+      alert('Erro ao deletar o tema')
+    }
+  }
 
   useEffect(() => {
     if(token === '') {
@@ -19,6 +52,12 @@ function DeletarTema() {
       navigate('/login')
     }
   }, [token])
+
+  useEffect(() => {
+    if(id !== undefined) {
+      buscarPorId(id)
+    }
+  }, [id])
 
   return (
     <div className="container w-1/3 mx-auto">
@@ -33,13 +72,13 @@ function DeletarTema() {
           Tema
         </header>
         <p className="p-8 text-3xl bg-slate-200 h-full">
-          Descrição do tema que vai de F
+          {tema.descricao}
         </p>
         <div className="flex">
-          <button className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2">
+          <button className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2" onClick={retornar}>
             Não
           </button>
-          <button className="w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center">
+          <button className="w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center" onClick={apagarTema}>
             Sim
           </button>
         </div>
