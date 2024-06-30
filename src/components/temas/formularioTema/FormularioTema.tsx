@@ -10,7 +10,7 @@ function FormularioTema() {
   const { usuario, handleLogout } = useContext(AuthContext);
   const token = usuario.token;
 
-  const navigate = useNavigate();
+  let navigate = useNavigate();
 
   const { id } = useParams<{ id: string }>();
 
