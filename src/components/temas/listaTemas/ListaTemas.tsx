@@ -7,8 +7,10 @@ import { buscar } from '../../../services/Service';
 import { Dna } from 'react-loader-spinner';
 
 function ListaTemas() {
+  //local para armazenar os temas
   const [temas, setTemas] = useState<Tema[]>([])
 
+  // toiken pra provar que eu to logado
   const { usuario } = useContext(AuthContext);
   const token = usuario.token;
 
@@ -22,6 +24,7 @@ function ListaTemas() {
     }
   }, [token])
 
+  //função pra ir no backend e pedir os temas
   async function buscarTemas(){
     try {
       await buscar('/temas', setTemas, {

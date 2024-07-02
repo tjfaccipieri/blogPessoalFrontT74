@@ -17,6 +17,7 @@ interface AuthProviderProps {
 
 export const AuthContext = createContext({} as AuthContextProps)
 
+// nome dessa função seja um resumo do que ela vai fazer + Provider
 export function AuthProvider({ children }: AuthProviderProps) {
 
     const [usuario, setUsuario] = useState<UsuarioLogin>({
@@ -30,13 +31,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     const [isLoading, setIsLoading] = useState(false)
 
+    //assyncrounous -> assincrono (função que aguarda uma resposta de outro local)
     async function handleLogin(userLogin: UsuarioLogin) {
         setIsLoading(true)
         try {
             await login(`/usuarios/logar`, userLogin, setUsuario)
             alert("Usuário logado com sucesso")
             setIsLoading(false)
-
         } catch (error) {
             console.log(error)
             alert("Dados do usuário inconsistentes")
@@ -54,7 +55,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
             token: ""
         })
     }
-
     return (
         <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading }}>
             {children}

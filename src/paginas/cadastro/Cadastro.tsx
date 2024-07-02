@@ -92,9 +92,9 @@ function Cadastro() {
             <input
               type="text"
               id="nome"
-              name="nome"
               placeholder="Nome"
               className="border-2 border-slate-700 rounded p-2"
+              name="nome"
               value={usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 atualizarEstado(e)

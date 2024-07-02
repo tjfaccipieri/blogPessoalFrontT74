@@ -1,4 +1,5 @@
 import homeLogo from '../../assets/codigo.png'
+import ListaPostagens from '../../components/postagens/listaPostagens/ListaPostagens';
 
 function Home() {
   return (
@@ -22,6 +23,11 @@ function Home() {
           </div>
         </div>
       </div>
+
+      {/* lista de postagens -> cards unicos de postagem */}
+      
+        <ListaPostagens />
+      
     </>
   );
 }

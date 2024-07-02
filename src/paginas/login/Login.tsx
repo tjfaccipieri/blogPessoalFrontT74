@@ -46,9 +46,9 @@ function login(e: ChangeEvent<HTMLFormElement>) {
             <input
               type="text"
               id="usuario"
-              name="usuario"
               placeholder="Usuario"
               className="border-2 border-slate-700 rounded p-2"
+              name="usuario"
               value={usuarioLogin.usuario} 
               onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
             />
