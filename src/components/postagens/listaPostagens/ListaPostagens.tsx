@@ -39,7 +39,7 @@ function ListaPostagens() {
   }, [postagens.length])
 
   return (
-    <div className='container mx-auto grid grid-cols-3 gap-8'>
+    <div className='container mx-auto grid grid-cols-3 gap-8 my-6'>
       {/* carregar um card para cada postagem */}
       {postagens.map(postagem => (
         <CardPostagem key={postagem.id} postagem={postagem} />
