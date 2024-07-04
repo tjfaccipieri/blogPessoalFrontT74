@@ -44,6 +44,7 @@ function FormularioPostagem() {
   const {id} = useParams<{id: string}>()
 
   // funcção que irá buscar todos os temas no nosso backend
+  // colocar um try catch aqui
   async function buscarTemas(){
     await buscar('/temas', setTemas, {
       headers: {Authorization: token}

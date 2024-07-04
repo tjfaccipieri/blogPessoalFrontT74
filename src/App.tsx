@@ -12,6 +12,11 @@ import FormularioTema from './components/temas/formularioTema/FormularioTema';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
 import FormularioPostagem from './components/postagens/formularioPostagem/FormularioPostagem';
 import ListaPostagens from './components/postagens/listaPostagens/ListaPostagens';
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import Perfil from './paginas/perfil/Perfil';
 
 function App() {
   return (
@@ -19,6 +24,7 @@ function App() {
       <AuthProvider>
         {/* agora você sabe que eu vou usar navegação */}
         <BrowserRouter>
+          <ToastContainer />
           {/* aqui são as rotas possiveis pro usuario */}
           <Navbar />
           <div className="min-h-[80vh]">
@@ -34,6 +40,8 @@ function App() {
               <Route path="/postagens" element={<ListaPostagens />} />
               <Route path="/cadastroPostagem" element={<FormularioPostagem />} />
               <Route path="/editarPostagem/:id" element={<FormularioPostagem />} />
+              <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
+              <Route path="/perfil" element={<Perfil />} />
             </Routes>
           </div>
           <Footer />

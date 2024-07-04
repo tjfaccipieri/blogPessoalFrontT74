@@ -34,7 +34,7 @@ function Navbar() {
             >
               Cadastrar tema
             </Link>
-            <div className="hover:underline cursor-pointer">Perfil</div>
+            <Link to='/perfil' className="hover:underline cursor-pointer">Perfil</Link>
             <Link
               to="/"
               onClick={logout}

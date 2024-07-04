@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const api = axios.create({
-  // baseURL: 'https://blogpessoal-5eix.onrender.com'
   baseURL: 'https://blogpessoalt74.onrender.com'
 })
 
