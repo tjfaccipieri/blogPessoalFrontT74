@@ -15,14 +15,14 @@ function CardPostagem({ postagem }: CardPostagemProps) {
       <div className="">
         <h2>Titulo da postagem: {postagem.titulo}</h2>
         <p>{postagem.texto}</p>
-        <p>Tema: {postagem.tema.descricao}</p>
-        <p>
+        <p>Tema: {postagem.tema?.descricao}</p>
+        {/* <p>
           Data:{' '}
           {new Intl.DateTimeFormat(undefined, {
             dateStyle: 'long',
             timeStyle: 'short',
           }).format(new Date(postagem.data))}
-        </p>
+        </p> */}
       </div>
       <div className="flex">
         <Link
